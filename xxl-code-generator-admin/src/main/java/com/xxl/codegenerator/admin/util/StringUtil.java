@@ -4,7 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -19,8 +18,6 @@ import java.util.regex.Pattern;
  * @date 2018 01 04 17:25
  */
 public class StringUtil {
-
-    private static final Logger LOGGER = LoggerFactory.getLogger(StringUtil.class);
 
     private static final int BYTE_BUFFER = 100;
 
@@ -42,6 +39,7 @@ public class StringUtil {
      * 将字节数组转换为输入流
      */
     public static final InputStream byte2Input(final byte[] buf) {
+        System.out.println("test");
         return new ByteArrayInputStream(buf);
     }
 
@@ -55,6 +53,7 @@ public class StringUtil {
         while ((rc = inStream.read(buff, 0, BYTE_BUFFER)) > 0) {
             swapStream.write(buff, 0, rc);
         }
+        System.out.println("test");
         return swapStream.toByteArray();
     }
 
@@ -66,6 +65,7 @@ public class StringUtil {
         final char[] cs = charArray = name.toCharArray();
         final int n = 0;
         charArray[n] -= ' ';
+        System.out.println("test");
         return String.valueOf(cs);
     }
 
